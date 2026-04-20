@@ -16,6 +16,6 @@ public class OneDArray {
             System.out.print(rollNums[i] + " ");
 
 
-        
+
     }
 }
