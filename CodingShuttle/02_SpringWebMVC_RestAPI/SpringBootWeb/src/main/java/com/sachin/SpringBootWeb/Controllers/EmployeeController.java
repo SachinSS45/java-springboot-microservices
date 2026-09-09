@@ -3,6 +3,7 @@ package com.sachin.SpringBootWeb.Controllers;
 import com.sachin.SpringBootWeb.Repositories.EmployeeRepository;
 import com.sachin.SpringBootWeb.dto.EmployeeDTO;
 import com.sachin.SpringBootWeb.entities.EmployeeEntity;
+import com.sachin.SpringBootWeb.services.EmployeeService;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -12,26 +13,27 @@ import java.util.List;
 @RequestMapping("/employees")
 public class EmployeeController {
 
-    private final EmployeeRepository employeeRepository;
+    private final EmployeeService employeeService;
 
-    public EmployeeController(EmployeeRepository employeeRepository){
-        this.employeeRepository = employeeRepository;
+    public EmployeeController(EmployeeService employeeService){
+        this.employeeService = employeeService;
     }
         //http://localhost:8080/employees/12
     @GetMapping(path = "/{employeeID}")
-    public EmployeeEntity getEmployeeById(@PathVariable(value = "employeeID") Long employeeId){
-           return employeeRepository.findById(employeeId).orElse(null);
+    public EmployeeDTO getEmployeeById(@PathVariable(value = "employeeID") Long employeeId){
+           return employeeService.getEmployeeById(employeeId);
+
     }
     //http://localhost:8080/employees?age=25&sortBy=Name
     @GetMapping
-    public List<EmployeeEntity> getAllEmployees(@RequestParam(required = false) Integer age, @RequestParam(required = false) String sortBy){
-        return employeeRepository.findAll();
+    public List<EmployeeDTO> getAllEmployees(){
+        return employeeService.getAllEmployees();
     }
 
     //POST api : To add new resource
     @PostMapping
-    public EmployeeEntity addNewEmployee(@RequestBody EmployeeEntity inputEmployee) {
-        return employeeRepository.save(inputEmployee);
+    public EmployeeDTO addNewEmployee(@RequestBody EmployeeDTO inputEmployee) {
+        return employeeService.addNewEmployee(inputEmployee);
     }
 
     @PutMapping
