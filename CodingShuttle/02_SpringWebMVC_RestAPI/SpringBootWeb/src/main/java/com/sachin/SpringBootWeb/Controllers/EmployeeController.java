@@ -4,6 +4,7 @@ import com.sachin.SpringBootWeb.Repositories.EmployeeRepository;
 import com.sachin.SpringBootWeb.dto.EmployeeDTO;
 import com.sachin.SpringBootWeb.entities.EmployeeEntity;
 import com.sachin.SpringBootWeb.services.EmployeeService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -37,13 +38,13 @@ public class EmployeeController {
 
     //POST api : To add new resource
     @PostMapping
-    public ResponseEntity<EmployeeDTO> addNewEmployee(@RequestBody EmployeeDTO inputEmployee) {
+    public ResponseEntity<EmployeeDTO> addNewEmployee(@Valid @RequestBody EmployeeDTO inputEmployee) {
         EmployeeDTO savedEmp =  employeeService.addNewEmployee(inputEmployee);
         return new ResponseEntity<>(savedEmp,HttpStatus.CREATED);
     }
 
     @PutMapping(path = "/{employeeId}")
-    public ResponseEntity<EmployeeDTO> updateEmployeeById(@PathVariable Long employeeId,@RequestBody EmployeeDTO employeeDTO){
+    public ResponseEntity<EmployeeDTO> updateEmployeeById(@PathVariable Long employeeId,@Valid @RequestBody EmployeeDTO employeeDTO){
         return ResponseEntity.ok(employeeService.updateEmployeeById(employeeId,employeeDTO));
     }
 

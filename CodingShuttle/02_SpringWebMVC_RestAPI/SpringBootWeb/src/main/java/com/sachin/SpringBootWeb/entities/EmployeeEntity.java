@@ -22,10 +22,12 @@ public class EmployeeEntity {
     private String name;
     private String email;
     private Integer age;
+    private Double salary;
+    private String role;
     private LocalDate dateOfJoining;
-
     @Column(name = "is_active")
     private Boolean isActive;
+
 
 
 }
