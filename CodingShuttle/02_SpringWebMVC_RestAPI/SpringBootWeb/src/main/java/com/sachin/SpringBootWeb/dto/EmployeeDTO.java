@@ -1,5 +1,6 @@
 package com.sachin.SpringBootWeb.dto;
 
+
 import java.time.LocalDate;
 
 public class EmployeeDTO {
@@ -7,15 +8,14 @@ public class EmployeeDTO {
     private String name;
     private String email;
     private Integer age;
-    private LocalDate dataOfJoining;
+    private LocalDate dateOfJoining;
     private Boolean isActive;
-
-    public EmployeeDTO(Long id, String name, String email, Integer age, LocalDate dataOfJoining, Boolean isActive) {
+    public EmployeeDTO(Long id, String name, String email, Integer age, LocalDate dateOfJoining, Boolean isActive) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.age = age;
-        this.dataOfJoining = dataOfJoining;
+        this.dateOfJoining = dateOfJoining;
         this.isActive = isActive;
     }
 
@@ -54,19 +54,19 @@ public class EmployeeDTO {
         this.age = age;
     }
 
-    public LocalDate getDataOfJoining() {
-        return dataOfJoining;
+    public LocalDate getDateOfJoining() {
+        return dateOfJoining;
     }
 
-    public void setDataOfJoining(LocalDate dataOfJoining) {
-        this.dataOfJoining = dataOfJoining;
+    public void setDateOfJoining(LocalDate dateOfJoining) {
+        this.dateOfJoining = dateOfJoining;
     }
 
-    public Boolean isActive() {
+    public Boolean getIsActive() {
         return isActive;
     }
 
-    public void setActive(Boolean active) {
+    public void setIsActive(Boolean active) {
         isActive = active;
     }
 }

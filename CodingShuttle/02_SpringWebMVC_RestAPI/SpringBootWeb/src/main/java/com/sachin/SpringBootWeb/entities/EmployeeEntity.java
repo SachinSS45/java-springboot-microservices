@@ -23,6 +23,8 @@ public class EmployeeEntity {
     private String email;
     private Integer age;
     private LocalDate dateOfJoining;
+
+    @Column(name = "is_active")
     private Boolean isActive;
 
 
