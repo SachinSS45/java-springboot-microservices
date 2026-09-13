@@ -3,7 +3,9 @@ package com.sachin.SpringBootWeb.Controllers;
 import com.sachin.SpringBootWeb.Repositories.EmployeeRepository;
 import com.sachin.SpringBootWeb.dto.EmployeeDTO;
 import com.sachin.SpringBootWeb.entities.EmployeeEntity;
+import com.sachin.SpringBootWeb.exceptions.ResourceNotFoundException;
 import com.sachin.SpringBootWeb.services.EmployeeService;
+import jakarta.transaction.Status;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @RestController
@@ -28,8 +31,13 @@ public class EmployeeController {
     public ResponseEntity<EmployeeDTO> getEmployeeById(@PathVariable(value = "employeeID") Long employeeId){
            Optional<EmployeeDTO> employeeDTO = employeeService.getEmployeeById(employeeId);
            return employeeDTO.map(employeeDTO1 -> ResponseEntity.ok(employeeDTO1))
-                   .orElse(ResponseEntity.notFound().build());
+                   .orElseThrow(() -> new ResourceNotFoundException("Employee not found with id : " + employeeId) );
     }
+
+//    @ExceptionHandler(NoSuchElementException.class)
+//    public ResponseEntity<String> handleEmployeeNotFound(Exception e){
+//        return ResponseEntity.status(404).body(e.getMessage());
+//    }
     //http://localhost:8080/employees?age=25&sortBy=Name
     @GetMapping
     public ResponseEntity<List<EmployeeDTO>> getAllEmployees(){
