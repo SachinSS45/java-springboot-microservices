@@ -1,6 +1,22 @@
-INSERT INTO test.product_table (price,quantity,sku,title_x)
-values
-    (12.4,4,'parle734','Parel Biscuit'),
-    (14.4,1,'pepsi123','Pepsi'),
-    (34.4,1,'coke124','Coca Cola'),
-    (16.4,3,'pepsi156','Mazza');
+INSERT INTO test.product_table (price, quantity, sku, title_x)
+VALUES
+    (25.5, 2, 'lays101', 'Lays Chips'),
+    (18.4, 5, 'kurk102', 'Kurkure'),
+    (22.9, 3, 'oreo103', 'Oreo Biscuit'),
+    (35.5, 2, 'dair104', 'Dairy Milk'),
+    (45.0, 4, 'kitk105', 'KitKat'),
+    (30.5, 1, 'fanta106', 'Fanta'),
+    (28.4, 3, 'thums107', 'Thums Up'),
+    (32.0, 2, 'limca108', 'Limca'),
+    (15.5, 6, 'magg109', 'Maggi'),
+    (42.5, 2, 'yippe110', 'Yippee Noodles'),
+    (55.0, 3, 'amul111', 'Amul Milk'),
+    (48.5, 2, 'brit112', 'Britannia Bread'),
+    (20.0, 5, 'hide113', 'Hide and Seek'),
+    (26.5, 4, 'good114', 'Good Day Biscuit'),
+    (60.0, 2, 'nesc115', 'Nescafe'),
+    (75.5, 1, 'tata116', 'Tata Tea'),
+    (38.0, 3, 'real117', 'Real Juice'),
+    (52.5, 2, 'slice118', 'Slice Mango'),
+    (24.0, 5, 'appy119', 'Appy Fizz'),
+    (65.0, 2, 'redb120', 'Red Bull');
