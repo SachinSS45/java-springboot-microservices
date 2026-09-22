@@ -4,9 +4,7 @@ import com.sachin.hospitalmanagmentsystem.dto.IPatientInfo;
 import com.sachin.hospitalmanagmentsystem.entity.Patient;
 import com.sachin.hospitalmanagmentsystem.services.IPatientService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,5 +23,10 @@ public class PatientController {
     @GetMapping("/patientInfo")
     public List<IPatientInfo> getAllPatientsInfo(){
         return patientService.getAllPatientsInfo();
+    }
+
+    @DeleteMapping("/{patientId}")
+    public void deletePatientById(@PathVariable Long patientId){
+        patientService.deletePatientById(patientId);
     }
 }

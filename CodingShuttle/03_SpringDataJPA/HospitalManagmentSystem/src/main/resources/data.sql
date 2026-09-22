@@ -10,3 +10,14 @@ VALUES
     ('Amanda Thomas', 'Female', '1998-05-17', 'amanda.t@example.com', 'AB_NEGATIVE'),
     ('Robert Martinez', 'Male', '1965-09-09', 'robert.m@example.com', 'A_POSITIVE'),
     ('Jessica Anderson', 'Female', '2003-02-14', 'jessica.a@example.com', 'O_POSITIVE');
+
+INSERT INTO doctor (name, specialization, email)
+VALUES
+    ('Dr. Ramesh Jagtap', 'Cardiology', 'ramesh.jagtap@hospital.com'),
+    ('Dr. Priya Sharma', 'Pediatrics', 'priya.sharma@hospital.com'),
+    ('Dr. Amit Deshmukh', 'Orthopedics', 'amit.deshmukh@hospital.com'),
+    ('Dr. Sneha Patil', 'Dermatology', 'sneha.patil@hospital.com'),
+    ('Dr. Vikram Joshi', 'Neurology', 'vikram.joshi@hospital.com'),
+    ('Dr. Anjali Desai', 'Gynecology', 'anjali.desai@hospital.com'),
+    ('Dr. Rahul Kulkarni', 'General Medicine', 'rahul.kulkarni@hospital.com'),
+    ('Dr. Sunita Shinde', 'Ophthalmology', 'sunita.shinde@hospital.com');

@@ -10,6 +10,8 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
+@ToString
 public class Appointment {
 
     @Id
@@ -24,9 +26,11 @@ public class Appointment {
     //Many appointments can belong to one patient (it means one patient can have many appointment
     @ManyToOne
     @JoinColumn(nullable = false) //to create appointment patient is required
+    @ToString.Exclude
     private Patient patient;//owner side
 
     @ManyToOne
     @JoinColumn(nullable = false)
+    @ToString.Exclude
     private Doctor doctor;
 }

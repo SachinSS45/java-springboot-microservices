@@ -2,6 +2,7 @@ package com.sachin.hospitalmanagmentsystem.services;
 
 import com.sachin.hospitalmanagmentsystem.dto.IPatientInfo;
 import com.sachin.hospitalmanagmentsystem.entity.Patient;
+import com.sachin.hospitalmanagmentsystem.exceptions.PatientNotFoundException;
 import com.sachin.hospitalmanagmentsystem.repository.PatientRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +22,13 @@ public class PatientService implements IPatientService{
     @Override
     public List<IPatientInfo> getAllPatientsInfo() {
         return patientRepository.getAllPatientsInfo();
+    }
+
+    @Transactional
+    @Override
+    public void deletePatientById(Long patientId) {
+        Patient patient = patientRepository.findById(patientId).orElseThrow( () -> new PatientNotFoundException("Patient is not found with id : " + patientId));
+        patientRepository.deleteById(patientId);
     }
 
     public void testPatientTransaction(){
