@@ -9,6 +9,9 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
 @ToString
 @Getter
 @Setter
@@ -26,4 +29,11 @@ public class Patient {
     @CreationTimestamp
     @Column(name = "created_at",updatable = false,columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime createdAt;
+
+    @OneToOne
+    @JoinColumn(name = "insurance_id")
+    private Insurance insurance;
+
+    @OneToMany(mappedBy = "patient")
+    private List<Appointment> appointment = new ArrayList<>();//inverse side
 }

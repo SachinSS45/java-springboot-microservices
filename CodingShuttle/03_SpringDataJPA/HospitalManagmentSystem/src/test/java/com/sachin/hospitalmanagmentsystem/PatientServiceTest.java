@@ -27,6 +27,6 @@ public class PatientServiceTest {
 //        int recordsUpdated = patientRepository.updatePatientNameWithId("Sachin Shetkar", 1L);
 //        System.out.println(recordsUpdated);
 
-        patientService.testPatientTransaction();
+       // patientService.testPatientTransaction();
     }
 }
