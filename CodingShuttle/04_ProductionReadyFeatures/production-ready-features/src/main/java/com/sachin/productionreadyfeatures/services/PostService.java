@@ -1,0 +1,12 @@
+package com.sachin.productionreadyfeatures.services;
+
+import com.sachin.productionreadyfeatures.DTO.PostDTO;
+
+import java.util.List;
+
+public interface PostService {
+    List<PostDTO> getAllPosts();
+    PostDTO createNewPost(PostDTO inputPost);
+
+    PostDTO getPostById(Long postId);
+}
